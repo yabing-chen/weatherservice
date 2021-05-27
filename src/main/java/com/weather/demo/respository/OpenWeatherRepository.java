@@ -50,24 +50,4 @@ public class OpenWeatherRepository {
 
     }
 
-    //not in use as restTemplate is older version.
-    public OpenWeatherResponse getOpenWeatherwithRestTemplate(String country, String city){
-
-        String url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=7ee313864d5f9aac50536cbaf3d097c0";
-
-        StringBuilder sb = new StringBuilder("http://api.openweathermap.org/data/2.5/weather?q=");
-        sb.append(city);
-        sb.append(",");
-        sb.append(country);
-        sb.append("&APPID=");
-        sb.append("7ee313864d5f9aac50536cbaf3d097c0");
-        url =sb.toString();
-
-        logger.info("calling Open weather service: " + url);
-        OpenWeatherResponse res = restTemplate.getForObject(url, OpenWeatherResponse.class);
-
-        return res;
-
-    }
-
 }
